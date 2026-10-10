@@ -1,19 +1,43 @@
-# === 敏感：TLS 证书/私钥（绝对不能 commit）===
+# ============================================================
+# 禁止上传: 所有生成/编译/二进制/运行时/图片/压缩包
+# 只允许上传: 源码(.c/.cpp/.h/.py/.sh/.go/.rs/.java), 配置(.conf/.cfg/.yaml/.yml/.json/.toml/.ini), 文档(.md/.txt/.rst), cert(.pem/.key 除外)
+# ============================================================
+
+# === 编译产物 ===
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.obj
+
+# === 可执行二进制 ===
+*.exe
+*.bin
+*.cur
+nginx-rootfs/bin/*
+unrealircd/bin/*
+unrealircd/unrealircd
+unrealircd/unrealircdctl
+unrealircd/unrealircd-upgrade-script
+
+# === UnrealIRCd 编译模块 ===
+unrealircd/modules/*.so
+unrealircd/modules/**/*.so
+unrealircd/lib/*
+
+# === 证书/私钥（绝对不能上传）===
 tls/
 *.pem
 *.key
 *.crt
+*.cer
 *.csr
+*.p12
+*.pfx
 
-# === 敏感：二进制/大文件 ===
-uploads/
-*.iso
-*.7z
-*.gguf
-*.bin
-*.deb
-
-# === UnrealIRCd 运行时产物 ===
+# === 运行时/数据 ===
 unrealircd/cache/
 unrealircd/data/
 unrealircd/logs/
@@ -21,23 +45,68 @@ unrealircd/*.pid
 unrealircd/*.sock
 unrealircd/conf/*.pid
 unrealircd/conf/*.sock
-
-# === 运行时临时文件 ===
-tmp/
-*.tmp
-*.log
-*.pid
-*.state
-*.sock
-*.bak
-
-# === nginx 运行时 ===
 nginx-rootfs/log/
 nginx-rootfs/tmp/
 nginx-rootfs/run/
-
-# === OS / 临时 ===
-.DS_Store
+*.log
+*.pid
+*.sock
+*.tmp
+*.state
+*.bak
 *.swp
 *.swo
+
+# === 大文件/压缩包/镜像 ===
+uploads/
+tmp/
+*.iso
+*.img
+*.7z
+*.rar
+*.zip
+*.tar
+*.tgz
+*.tar.gz
+*.tar.bz2
+*.gguf
+*.deb
+*.rpm
+*.apk
+
+# === 图片 ===
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.svg
+*.ico
+*.heic
+*.raw
+*.tiff
+
+# === 字体 ===
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+
+# === IDE/OS ===
+.vscode/
+.idea/
+.trae/
+.DS_Store
+Thumbs.db
 *~
+
+# === nginx 运行 ===
+*.pid
+*.sock
