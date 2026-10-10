@@ -1,0 +1,43 @@
+# === 敏感：TLS 证书/私钥（绝对不能 commit）===
+tls/
+*.pem
+*.key
+*.crt
+*.csr
+
+# === 敏感：二进制/大文件 ===
+uploads/
+*.iso
+*.7z
+*.gguf
+*.bin
+*.deb
+
+# === UnrealIRCd 运行时产物 ===
+unrealircd/cache/
+unrealircd/data/
+unrealircd/logs/
+unrealircd/*.pid
+unrealircd/*.sock
+unrealircd/conf/*.pid
+unrealircd/conf/*.sock
+
+# === 运行时临时文件 ===
+tmp/
+*.tmp
+*.log
+*.pid
+*.state
+*.sock
+*.bak
+
+# === nginx 运行时 ===
+nginx-rootfs/log/
+nginx-rootfs/tmp/
+nginx-rootfs/run/
+
+# === OS / 临时 ===
+.DS_Store
+*.swp
+*.swo
+*~
